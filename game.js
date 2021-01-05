@@ -72,30 +72,8 @@ setTimeout(function () {
 
 // play audio associated with color of button
 function play(color) {
-		switch (color) {
-				case "green":
-						var greenSound = new Audio("sounds/green.mp3");
-						greenSound.play();
-						break;
-
-				case "red":
-						var redSound = new Audio("sounds/red.mp3");
-						redSound.play();
-						break;
-
-				case "blue":
-						var blueSound = new Audio("sounds/blue.mp3");
-						blueSound.play();
-						break;
-
-				case "yellow":
-						var yellowSound = new Audio("sounds/yellow.mp3");
-						yellowSound.play();
-						break;
-		}
-		// I could have just said in each case to set the variable color to
-		// to the case color and the have it say
-		// var sound = new Audio("sounds/" + color + ".mp3") and sound.play() maybe. I should try it.
+	let Sound = new Audio("sounds/" + color + ".mp3");
+	Sound.play();
 }
 
 // check fail state
