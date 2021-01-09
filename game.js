@@ -6,15 +6,16 @@ var level = 0;
 
 
 // start game
-document.addEventListener("keydown", function () {
-		if (document.querySelector("h1").innerHTML === "Press A Key to Start") {
-				nextSequence();
-		} else if
-				(document.querySelector("h1").innerHTML === "Game Over, Press Any Key To Restart") {
-						gamePattern = [];
-						userClickedPattern = [];
-						level = [];
-						nextSequence();
+document.querySelector(".start").addEventListener('click', function () {
+	let userClickedButton = event.target.id
+	togglePress(userClickedButton);
+		if (document.querySelector("h1").innerHTML === "Press Start Button to Start") {
+			nextSequence();
+		} else if (document.querySelector("h1").innerHTML === "Game Over, Press Start to Restart") {
+			gamePattern = [];
+			userClickedPattern = [];
+			level = [];
+			nextSequence();
 		}
 });
 
@@ -54,20 +55,20 @@ function nextSequence() {
 		userClickedPattern = [];
 };
 
-// toggle the press class to the div with the id of the clicked color
+// toggle the press class to the div with the class of the clicked color
 function togglePress(color) {
-		document.querySelector("#" + color).classList.toggle("pressed");
+		document.querySelector("." + color).classList.toggle("pressed");
 
 setTimeout(function () {
-		document.querySelector("#" + color).classList.toggle("pressed")}, 150);
+		document.querySelector("." + color).classList.toggle("pressed")}, 150);
 }
 
 // toggle the visibility to the div with the id of the clicked color
 function flash(color) {
-		document.querySelector("#" + color).style.visibility = "hidden";
+		document.querySelector("." + color).style.visibility = "hidden";
 
 setTimeout(function () {
-		document.querySelector("#" + color).style.visibility = ""}, 150);
+		document.querySelector("." + color).style.visibility = ""}, 150);
 }
 
 // play audio associated with color of button
@@ -87,7 +88,7 @@ function checkAnswer(currentLevel) {
 				setTimeout(function () {
 						document.querySelector("body").classList.toggle("game-over")}, 200);
 
-				document.querySelector("h1").innerHTML = "Game Over, Press Any Key To Restart";
+				document.querySelector("h1").innerHTML = "Game Over, Press Start to Restart";
 				gamePattern = [];
 		}
 }
